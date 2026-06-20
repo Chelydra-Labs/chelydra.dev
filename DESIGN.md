@@ -6,7 +6,7 @@ Welcome to the official design documentation for **Chelydra Labs**. This documen
 
 ## 1. Brand Philosophy
 
-The **Chelydra Labs** identity is built around *Chelydra* (the snapping turtle)—symbolizing resilience, low-level structural stability, and a sharp, defensive technical edge. 
+The **Chelydra Labs** identity is built around *Chelydra* (the snapping turtle)—symbolizing resilience, low-level structural stability, and a sharp, defensive technical edge. The official brand motto is **"Hard Shell. Sharp Edge."** 
 
 The visual language is **geometric, blocky, and cybernetic**, bridging the gap between low-level engineering grit and modern full-stack systems architecture. It rejects overly rounded, soft corporate styles in favor of high-contrast, structural angles and tech-forward tones.
 
