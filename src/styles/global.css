@@ -372,6 +372,58 @@ main {
 .hero__logo-wrapper {
   position: relative;
   display: inline-block;
+  background: #14151b; /* Opaque backing to match the logo image exactly */
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(45, 99, 122, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero__logo-wrapper::before,
+.hero__logo-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero__logo-wrapper::before {
+  top: -2px;
+  left: -2px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-color: var(--accent);
+}
+.hero__logo-wrapper::after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+  border-color: var(--accent);
+}
+.hero__logo-wrapper:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 
+    0 20px 48px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(27, 197, 186, 0.25);
+}
+.hero__logo-wrapper:hover::before {
+  top: -5px;
+  left: -5px;
+  width: 16px;
+  height: 16px;
+}
+.hero__logo-wrapper:hover::after {
+  bottom: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
 }
 .hero__logo-glow {
   position: absolute;
@@ -379,8 +431,8 @@ main {
   left: 10%;
   width: 80%;
   height: 80%;
-  background: radial-gradient(circle, rgba(27, 197, 186, 0.22) 0%, transparent 70%);
-  filter: blur(24px);
+  background: radial-gradient(circle, rgba(27, 197, 186, 0.18) 0%, transparent 70%);
+  filter: blur(28px);
   pointer-events: none;
   z-index: -1;
 }
@@ -395,7 +447,7 @@ main {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .hero__logo-wrapper:hover .hero__logo {
-  transform: scale(1.03) translateY(-3px);
+  transform: scale(1.01);
 }
 
 /* ---------- cards / grid ---------- */
