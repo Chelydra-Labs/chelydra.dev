@@ -1,0 +1,61 @@
+---
+// Bot-protected email link.
+// The plaintext address never appears in the server-rendered HTML.
+// A base64 payload is decoded at runtime by an inline script when the user
+// clicks (or on DOMContentLoaded) to populate the mailto: href.
+import { emailBase64, emailMunged } from '../lib/email';
+
+interface Props {
+  inline?: boolean;
+  label?: string;
+}
+
+const { inline = false, label } = Astro.props;
+const payload = emailBase64();
+const display = label ?? emailMunged();
+---
+<span class={`email-link-wrap${inline ? ' email-link-wrap--inline' : ''}`}>
+  <a
+    href="#"
+    class={`email-link${inline ? ' email-link--inline' : ''}`}
+    data-email={payload}
+    onclick="return false;"
+    >{display}</a
+  >
+  <noscript>
+    <span class="email-noscript">{display}</span>
+  </noscript>
+</span>
+
+<script is:inline>
+  (function () {
+    function decode(b64) {
+      try {
+        return atob(b64);
+      } catch (e) {
+        return '';
+      }
+    }
+    function install() {
+      var links = document.querySelectorAll('a.email-link[data-email]');
+      links.forEach(function (link) {
+        var addr = decode(link.getAttribute('data-email') || '');
+        if (!addr) return;
+        link.setAttribute('href', 'mailto:' + addr);
+        link.textContent = addr;
+        link.removeAttribute('onclick');
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', install);
+    } else {
+      install();
+    }
+  })();
+</script>
+
+<style>
+  .email-link-wrap {
+    display: inline-block;
+  }
+</style>

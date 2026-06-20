@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ReleaseList from '../../components/ReleaseList.astro';
+import { getEntry, render } from 'astro:content';
+import { getLatestRelease } from '../../lib/github';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+if (!slug) {
+  return new Response('Not found', { status: 404 });
+}
+
+const project = await getEntry('projects', slug);
+if (!project) {
+  return new Response('Not found', { status: 404 });
+}
+
+const { title, tagline, repo, homepage, docs, license, language } = project.data;
+
+const release = await getLatestRelease(repo);
+const { Content } = await render(project);
+---
+<Layout title={title} description={tagline}>
+  <article class="container project-layout">
+    <header class="project-header">
+      <h1>{title}</h1>
+      <p class="tagline">{tagline}</p>
+      <div class="project-meta">
+        {language && <span class="tag">{language}</span>}
+        {license && <span class="tag">{license}</span>}
+        <span class="tag">{repo}</span>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Download</h2>
+      <p>
+        Latest release pulled live from
+        <a href={`https://github.com/${repo}`} rel="noopener noreferrer" target="_blank">{repo}</a>.
+      </p>
+      <ReleaseList release={release} repo={repo} />
+    </section>
+
+    <section class="section">
+      <div class="prose">
+        <Content />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links</h2>
+      <p>
+        {homepage && <a href={homepage} rel="noopener noreferrer" target="_blank">Homepage</a>}
+        {homepage && docs && ' / '}
+        {docs && <a href={docs} rel="noopener noreferrer" target="_blank">Docs</a>}
+        {(homepage || docs) && ' / '}
+        <a href={`https://github.com/${repo}`} rel="noopener noreferrer" target="_blank">GitHub</a>
+        {' / '}
+        <a href={`https://github.com/${repo}/issues`} rel="noopener noreferrer" target="_blank">Issues</a>
+      </p>
+    </section>
+  </article>
+</Layout>

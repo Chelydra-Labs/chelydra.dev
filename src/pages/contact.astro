@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import EmailLink from '../components/EmailLink.astro';
+---
+<Layout title="Contact" description="Get in touch with Chelydra Labs.">
+  <section class="container" style="padding: 4rem 0;">
+    <h1>Contact</h1>
+    <p>
+      Questions, contributions, or feedback on any Chelydra Labs project?
+      Reach out &mdash; the inbox is monitored.
+    </p>
+
+    <div class="email-block">
+      <p style="margin:0 0 0.5rem; color: var(--text-muted);">Email</p>
+      <EmailLink />
+      <p style="margin:1rem 0 0; color: var(--text-dim); font-size:0.85rem;">
+        The address above is hidden from scrapers. If JavaScript is disabled, the
+        munged form still works &mdash; just rewrite it manually.
+      </p>
+    </div>
+
+    <p style="margin-top:2rem;">
+      For project-specific issues, please use the issue tracker on the
+      project's GitHub repository instead of email.
+    </p>
+  </section>
+</Layout>

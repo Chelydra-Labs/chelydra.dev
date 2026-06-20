@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<Layout>
+  <section class="container hero">
+    <h1>Chelydra Labs</h1>
+    <p>
+      Home for a family of open-source projects. Resilient, low-level, built to last &mdash;
+      like the snapping turtle we take our name from.
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#projects">View projects</a>
+      <a class="btn" href="https://github.com/Chelydra-Labs" rel="noopener noreferrer" target="_blank">GitHub &rarr;</a>
+    </div>
+  </section>
+
+  <section class="container" id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</Layout>

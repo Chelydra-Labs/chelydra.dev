@@ -1,0 +1,7 @@
+# Railpack build config for Astro SSR on Railway.
+# Railpack auto-detects Astro from astro.config.mjs and runs `npm run build`.
+# We override the start command to launch the Node SSR server produced by
+# @astrojs/node (mode: 'standalone'). Astro respects HOST and PORT env vars.
+
+[start]
+cmd = "node ./dist/server/entry.mjs"

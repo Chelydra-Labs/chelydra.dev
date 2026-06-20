@@ -1,0 +1,96 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+import EmailLink from '../components/EmailLink.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Chelydra Labs',
+  description = 'Chelydra Labs is the home for a family of open-source projects.',
+} = Astro.props;
+
+const siteName = 'Chelydra Labs';
+const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
+const year = new Date().getFullYear();
+const path = Astro.url.pathname;
+const isActive = (p: string) =>
+  path === p || (p !== '/' && path.startsWith(p));
+const canonical = new URL(path, Astro.site ?? Astro.url.origin).toString();
+const ogImage = new URL('/og-image.png', Astro.site ?? Astro.url.origin).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0A1F1D" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="/" class="brand">
+          <Image
+            src={logo}
+            alt=""
+            width={30}
+            height={30}
+            class="brand__logo"
+            loading="eager"
+          />
+          <span>{siteName}</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/" aria-current={isActive('/') ? 'page' : undefined}>projects</a>
+          <a href="/contact" aria-current={isActive('/contact') ? 'page' : undefined}>contact</a>
+          <a
+            href="https://github.com/Chelydra-Labs"
+            rel="noopener noreferrer"
+            target="_blank">github</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <span>&copy; {year} Chelydra Labs. Open source under MIT.</span>
+        <span>
+          <a href="https://github.com/Chelydra-Labs" rel="noopener noreferrer" target="_blank">github</a>
+          &nbsp;/&nbsp;
+          <EmailLink inline />
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

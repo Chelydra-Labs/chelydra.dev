@@ -1,0 +1,72 @@
+---
+import type { Release, Platform, ReleaseAsset } from '../lib/github';
+import { formatBytes } from '../lib/github';
+
+interface Props {
+  release: Release | null;
+  repo: string;
+}
+const { release, repo } = Astro.props;
+
+const PLATFORM_ORDER: Platform[] = ['windows', 'linux', 'macos', 'other'];
+const PLATFORM_LABELS: Record<Platform, string> = {
+  windows: 'Windows',
+  linux: 'Linux',
+  macos: 'macOS',
+  other: 'Other',
+};
+
+const published = release
+  ? new Date(release.publishedAt).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  : '';
+
+const grouped: Record<Platform, ReleaseAsset[]> = {
+  windows: [],
+  linux: [],
+  macos: [],
+  other: [],
+};
+if (release) {
+  for (const asset of release.assets) {
+    grouped[asset.platform].push(asset);
+  }
+}
+const releasesUrl = `https://github.com/${repo}/releases`;
+---
+{release === null ? (
+  <div class="release-empty">
+    <p style="margin:0 0 0.5rem;">No published releases yet.</p>
+    <a href={releasesUrl} rel="noopener noreferrer" target="_blank">View tags on GitHub &rarr;</a>
+  </div>
+) : (
+  <div class="release-card">
+    <div class="release-card__header">
+      <span class="release-card__tag">{release.tagName}</span>
+      <span class="release-card__date">Released {published}</span>
+    </div>
+
+    {PLATFORM_ORDER.filter((p) => grouped[p].length > 0).map((platform) => (
+      <div class="platform-group">
+        <div class="platform-group__label">{PLATFORM_LABELS[platform]}</div>
+        <ul class="download-list">
+          {grouped[platform].map((asset) => (
+            <li>
+              <a class="download-link" href={asset.url} rel="noopener noreferrer" target="_blank">
+                <span>{asset.name}</span>
+                {asset.size > 0 && <span class="download-link__size">{formatBytes(asset.size)}</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+    <div style="margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.85rem;">
+      <a href={releasesUrl} rel="noopener noreferrer" target="_blank">All releases &rarr;</a>
+    </div>
+  </div>
+)}

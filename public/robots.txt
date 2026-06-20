@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chelydra.dev/sitemap-index.xml
