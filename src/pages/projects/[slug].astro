@@ -33,32 +33,51 @@ const { Content } = await render(project);
       </div>
     </header>
 
-    <section class="section">
-      <h2>Download</h2>
-      <p>
-        Latest release pulled live from
-        <a href={`https://github.com/${repo}`} rel="noopener noreferrer" target="_blank">{repo}</a>.
-      </p>
-      <ReleaseList release={release} repo={repo} />
-    </section>
-
-    <section class="section">
-      <div class="prose">
-        <Content />
+    <div class="project-grid-layout">
+      <!-- Main Content Column -->
+      <div class="project-main-content">
+        <section class="section">
+          <div class="prose">
+            <Content />
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section class="section">
-      <h2>Links</h2>
-      <p>
-        {homepage && <a href={homepage} rel="noopener noreferrer" target="_blank">Homepage</a>}
-        {homepage && docs && ' / '}
-        {docs && <a href={docs} rel="noopener noreferrer" target="_blank">Docs</a>}
-        {(homepage || docs) && ' / '}
-        <a href={`https://github.com/${repo}`} rel="noopener noreferrer" target="_blank">GitHub</a>
-        {' / '}
-        <a href={`https://github.com/${repo}/issues`} rel="noopener noreferrer" target="_blank">Issues</a>
-      </p>
-    </section>
+      <!-- Sidebar Column -->
+      <aside class="project-sidebar">
+        <div class="sidebar-panel">
+          <div>
+            <h2 class="sidebar-panel__title">Latest Release</h2>
+            <ReleaseList release={release} repo={repo} />
+          </div>
+
+          <div class="sidebar-links">
+            <h3 class="sidebar-links__title">Resources</h3>
+            <div class="link-grid">
+              {homepage && (
+                <a href={homepage} class="link-item" target="_blank" rel="noopener noreferrer">
+                  <span>Homepage</span>
+                  <span class="link-item__icon">&rarr;</span>
+                </a>
+              )}
+              {docs && (
+                <a href={docs} class="link-item" target="_blank" rel="noopener noreferrer">
+                  <span>Documentation</span>
+                  <span class="link-item__icon">&rarr;</span>
+                </a>
+              )}
+              <a href={`https://github.com/${repo}`} class="link-item" target="_blank" rel="noopener noreferrer">
+                <span>GitHub Repository</span>
+                <span class="link-item__icon">&rarr;</span>
+              </a>
+              <a href={`https://github.com/${repo}/issues`} class="link-item" target="_blank" rel="noopener noreferrer">
+                <span>Issue Tracker</span>
+                <span class="link-item__icon">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
   </article>
 </Layout>

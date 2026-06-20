@@ -11,27 +11,46 @@ const projects = (await getCollection('projects'))
 ---
 <Layout>
   <section class="container hero">
-    <h1 class="sr-only">Chelydra Labs</h1>
-    <Image
-      src={logo}
-      alt="Chelydra Labs"
-      width={320}
-      height={320}
-      class="hero__logo"
-      loading="eager"
-    />
-    <p>
-      Home for a family of open-source projects. Resilient, low-level, built to last &mdash;
-      like the snapping turtle we take our name from.
-    </p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="#projects">View projects</a>
-      <a class="btn" href="https://github.com/Chelydra-Labs" rel="noopener noreferrer" target="_blank">GitHub &rarr;</a>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="hero__tagline">Chelydra Labs</span>
+        <h1 class="hero__title">Resilient, Low-Level Engineering</h1>
+        <p class="hero__desc">
+          Home for a family of open-source projects. Built to last and engineered for high-performance &mdash; like the snapping turtle we take our name from.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects">
+            <span>View projects</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </a>
+          <a class="btn" href="https://github.com/Chelydra-Labs" rel="noopener noreferrer" target="_blank">
+            <span>GitHub</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7M7 7h10v10"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__logo-wrapper">
+          <div class="hero__logo-glow"></div>
+          <Image
+            src={logo}
+            alt="Chelydra Labs Snapping Turtle Mascot"
+            width={280}
+            height={280}
+            class="hero__logo"
+            loading="eager"
+          />
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="container" id="projects">
-    <h2>Projects</h2>
+  <section class="container" id="projects" style="padding-bottom: 4rem;">
+    <h2>Featured Projects</h2>
     <div class="project-grid">
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>

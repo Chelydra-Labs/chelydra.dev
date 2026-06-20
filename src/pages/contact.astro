@@ -3,25 +3,28 @@ import Layout from '../layouts/Layout.astro';
 import EmailLink from '../components/EmailLink.astro';
 ---
 <Layout title="Contact" description="Get in touch with Chelydra Labs.">
-  <section class="container" style="padding: 4rem 0;">
-    <h1>Contact</h1>
-    <p>
+  <section class="container" style="padding: 4rem 0; max-width: 680px;">
+    <h1 style="border-left: 3px solid var(--accent); padding-left: 0.8rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.8rem; margin-bottom: 1.5rem;">Contact</h1>
+    <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
       Questions, contributions, or feedback on any Chelydra Labs project?
       Reach out &mdash; the inbox is monitored.
     </p>
 
     <div class="email-block">
-      <p style="margin:0 0 0.5rem; color: var(--text-muted);">Email</p>
+      <div style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem;">
+        &lt; secure_channel_established &gt;
+      </div>
+      <p style="margin: 0 0 0.75rem; color: var(--text-muted); font-family: var(--mono); font-size: 0.9rem;">
+        Direct Email:
+      </p>
       <EmailLink />
-      <p style="margin:1rem 0 0; color: var(--text-dim); font-size:0.85rem;">
-        The address above is hidden from scrapers. If JavaScript is disabled, the
-        munged form still works &mdash; just rewrite it manually.
+      <p style="margin: 1.5rem 0 0; color: var(--text-dim); font-size: 0.82rem; line-height: 1.5; font-family: var(--sans);">
+        The address above is dynamically decoded to block web scrapers. If JavaScript is disabled, rewrite the munged placeholder text manually.
       </p>
     </div>
 
-    <p style="margin-top:2rem;">
-      For project-specific issues, please use the issue tracker on the
-      project's GitHub repository instead of email.
+    <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+      <strong>Note:</strong> For project-specific bugs, feature requests, or technical issues, please open an issue on the project's GitHub repository instead of emailing.
     </p>
   </section>
 </Layout>

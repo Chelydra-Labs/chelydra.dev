@@ -19,7 +19,9 @@ const fullTitle = title === siteName ? title : `${title} - ${siteName}`;
 const year = new Date().getFullYear();
 const path = Astro.url.pathname;
 const isActive = (p: string) =>
-  path === p || (p !== '/' && path.startsWith(p));
+  path === p ||
+  (p === '/' && path.startsWith('/projects')) ||
+  (p !== '/' && path.startsWith(p));
 const canonical = new URL(path, Astro.site ?? Astro.url.origin).toString();
 const ogImage = new URL('/og-image.png', Astro.site ?? Astro.url.origin).toString();
 ---
