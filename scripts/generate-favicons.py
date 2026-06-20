@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src" / "assets" / "logo.png"
 OUT = ROOT / "public"
 
-BG = (0x0A, 0x1F, 0x1D)        # Deep Tech Green-Black
+BG = (0x14, 0x15, 0x1B)        # Deep Tech Charcoal (matches logo backdrop)
 TEXT = (0xF0, 0xF4, 0xF4)      # UI Light Background (as text)
 ACCENT = (0x1B, 0xC5, 0xBA)    # Teal Accent
 

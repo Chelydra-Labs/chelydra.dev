@@ -34,10 +34,12 @@ The mascot features a stylized, cybernetic **Common Snapping Turtle (*Chelydra s
 
 The palette features a heavily optimized dark-mode foundation contrasted with sharp cybernetic accents and highly readable neutral tones (as mapped in `watermarked_img_15663655474338550199.png`).
 
+The canvas color (`#14151b`) intentionally matches the logo's own backdrop so the full lockup (mascot + wordmark) blends seamlessly into the page without a visible seam.
+
 ### Primary Brand Colors
 | Color Name | Hex Code | Purpose / Best Practice |
 | :--- | :--- | :--- |
-| **Deep Tech Green-Black** | `#0A1F1D` | Default dark application background, canvas backdrop. |
+| **Deep Tech Charcoal** | `#14151b` | Default dark application background, canvas backdrop. Matches the logo backdrop for seamless integration. |
 | **Steel Blue** | `#2D637A` | Large structural blocks, subtle branding sections, headers. |
 
 ### Accent & Action Colors
@@ -74,7 +76,7 @@ To mirror the blocky, geometric nature of the brand, typography should prioritiz
 
 ## 5. UI & Component Application Guidelines
 
-> **Dark Mode First:** All interfaces should default to a dark-theme presentation using `#0A1F1D` to maximize the glow and contrast of the Teal and Gold elements.
+> **Dark Mode First:** All interfaces should default to a dark-theme presentation using `#14151b` to maximize the glow and contrast of the Teal and Gold elements.
 
 ### Components
 * **Buttons:** Primary buttons use `#1BC5BA` background with `#040808` text. Secondary actions use `#4A6E7D` borders with transparent or low-opacity fills.

@@ -3,17 +3,17 @@
  * Tight 2-4px radii (or square). No pills. */
 
 :root {
-  /* Backgrounds */
-  --bg: #0a1f1d;
-  --bg-elevated: #0d2826;
-  --bg-card: #102e2b;
-  --bg-code: #040808;
+  /* Backgrounds - blue-charcoal family, aligned with logo bg #14151b */
+  --bg: #14151b;
+  --bg-elevated: #1a1c24;
+  --bg-card: #1e2028;
+  --bg-code: #0d0e14;
 
   /* Structure */
   --steel: #2d637a;
   --steel-soft: rgba(45, 99, 122, 0.22);
   --panel: #4a6e7d;
-  --border: rgba(74, 110, 125, 0.45);
+  --border: rgba(74, 110, 125, 0.4);
   --border-strong: #4a6e7d;
 
   /* Accents */
@@ -26,8 +26,8 @@
 
   /* Text */
   --text: #f0f4f4;
-  --text-muted: #9fb6b2;
-  --text-dim: #5d7884;
+  --text-muted: #9aa4b0;
+  --text-dim: #5a6370;
   --text-on-accent: #040808;
 
   /* Radii: DESIGN.md says 2-4px max or square */
@@ -167,7 +167,7 @@ pre code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 88px;
 }
 .brand {
   display: inline-flex;
@@ -178,8 +178,8 @@ pre code {
   color: var(--text);
 }
 .brand__logo {
-  width: 56px;
-  height: 56px;
+  width: 72px;
+  height: 72px;
   display: block;
 }
 .nav {
