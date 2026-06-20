@@ -246,6 +246,7 @@ main {
   aspect-ratio: 1 / 1;
   margin: 0 auto 1.5rem;
   display: block;
+  border: 2px solid var(--accent);
 }
 .hero h1 {
   margin-bottom: 1rem;
