@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects'))
@@ -9,7 +11,15 @@ const projects = (await getCollection('projects'))
 ---
 <Layout>
   <section class="container hero">
-    <h1>Chelydra Labs</h1>
+    <h1 class="sr-only">Chelydra Labs</h1>
+    <Image
+      src={logo}
+      alt="Chelydra Labs"
+      width={320}
+      height={320}
+      class="hero__logo"
+      loading="eager"
+    />
     <p>
       Home for a family of open-source projects. Resilient, low-level, built to last &mdash;
       like the snapping turtle we take our name from.
