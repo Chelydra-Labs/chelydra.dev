@@ -78,7 +78,13 @@ To mirror the blocky, geometric nature of the brand, typography should prioritiz
 
 > **Dark Mode First:** All interfaces should default to a dark-theme presentation using `#14151b` to maximize the glow and contrast of the Teal and Gold elements.
 
-### Components
-* **Buttons:** Primary buttons use `#1BC5BA` background with `#040808` text. Secondary actions use `#4A6E7D` borders with transparent or low-opacity fills.
+### Layout & Page Blueprints
+* **Asymmetric Hero Split:** For landing pages, pair typography, description, and primary/secondary CTAs side-by-side with the mascot visual over a radial brand glow. The mascot should remain borderless to blend seamlessly into the canvas background.
+* **Two-Column Sticky Dashboard:** Project detail pages display technical prose in a wide primary column, with download assets (`ReleaseList`), resource link matrices, and repository metadata in a narrow, sticky sidebar column.
+* **Canvas Grid Overlay:** Implement a hardware-inspired geometric pattern with `40px` spaced grid lines using a low-opacity `Steel Blue` line color (`rgba(45, 99, 122, 0.04)`) to anchor the cybernetic theme.
+
+### Component Polish
+* **Buttons:** Primary buttons use `#1BC5BA` background with `#040808` text. Secondary actions use `#4A6E7D` borders with transparent or low-opacity fills. Hover states should leverage subtle elevations and translations (e.g., arrow slide offsets).
 * **Borders & Radii:** Keep corner radii tight (`2px` to `4px` maximum) or completely square (`0px`) to honor the geometric, blocky design language of the logo. Avoid soft, circular pills for standard layout containers.
+* **Glassmorphic Panels:** Cards, sticky headers, and navigation panels use translucent dark backgrounds (`rgba(22, 24, 33, 0.75)`) with a light steel-blue border (`rgba(74, 110, 125, 0.22)`) and `backdrop-filter: blur(12px)`.
 * **Code Blocks:** Wrap in `#040808` backgrounds with a thin `#2D637A` border. Accent paths or variable highlights should lean into the `#FFA500` gold spectrum.
