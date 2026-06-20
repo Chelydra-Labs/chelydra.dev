@@ -247,6 +247,7 @@ main {
   margin: 0 auto 1.5rem;
   display: block;
   border: 2px solid var(--accent);
+  border-radius: var(--radius);
 }
 .hero h1 {
   margin-bottom: 1rem;
