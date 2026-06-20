@@ -95,6 +95,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -826,7 +827,8 @@ main {
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
 }
-.prose ul {
+.prose ul,
+.prose ol {
   padding-left: 1.25rem;
   margin-bottom: 1.25rem;
 }
@@ -835,6 +837,41 @@ main {
 }
 .prose strong {
   color: var(--text);
+}
+.prose blockquote {
+  border-left: 3px solid var(--steel);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  margin: 1.5rem 0;
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.prose blockquote p {
+  margin: 0;
+  color: var(--tan);
+  font-style: italic;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.9rem;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--border-glass);
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+}
+.prose th {
+  background: rgba(45, 99, 122, 0.18);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.prose tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.015);
 }
 
 /* ---------- buttons ---------- */
