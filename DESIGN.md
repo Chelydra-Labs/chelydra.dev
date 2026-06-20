@@ -79,7 +79,7 @@ To mirror the blocky, geometric nature of the brand, typography should prioritiz
 > **Dark Mode First:** All interfaces should default to a dark-theme presentation using `#14151b` to maximize the glow and contrast of the Teal and Gold elements.
 
 ### Layout & Page Blueprints
-* **Asymmetric Hero Split:** For landing pages, pair typography, description, and primary/secondary CTAs side-by-side with the mascot visual over a radial brand glow. The mascot should remain borderless to blend seamlessly into the canvas background.
+* **Asymmetric Hero Split:** For landing pages, pair typography, description, and primary/secondary CTAs side-by-side with the mascot visual over a radial brand glow. Since the mascot image is opaque, it is styled inside a dedicated, solid-backed container framed by tactical cybernetic target brackets in Teal Accent to blend it intentionally into the page layout.
 * **Two-Column Sticky Dashboard:** Project detail pages display technical prose in a wide primary column, with download assets (`ReleaseList`), resource link matrices, and repository metadata in a narrow, sticky sidebar column.
 * **Canvas Grid Overlay:** Implement a hardware-inspired geometric pattern with `40px` spaced grid lines using a low-opacity `Steel Blue` line color (`rgba(45, 99, 122, 0.04)`) to anchor the cybernetic theme.
 
