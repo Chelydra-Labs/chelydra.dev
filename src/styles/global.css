@@ -167,27 +167,20 @@ pre code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 80px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--text);
 }
 .brand:hover {
   color: var(--text);
 }
-.brand__mark {
-  color: var(--text);
-}
-.brand__mark--accent {
-  color: var(--accent);
-  margin-left: 0.4em;
+.brand__logo {
+  width: 56px;
+  height: 56px;
+  display: block;
 }
 .nav {
   display: flex;

@@ -2,6 +2,8 @@
 import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
 import EmailLink from '../components/EmailLink.astro';
 
 interface Props {
@@ -53,8 +55,15 @@ const ogImage = new URL('/og-image.png', Astro.site ?? Astro.url.origin).toStrin
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="/" class="brand">
-          <span class="brand__mark">CHELYDRA</span><span class="brand__mark brand__mark--accent">LABS</span>
+        <a href="/" class="brand" aria-label="Chelydra Labs home">
+          <Image
+            src={logo}
+            alt="Chelydra Labs"
+            width={56}
+            height={56}
+            class="brand__logo"
+            loading="eager"
+          />
         </a>
         <nav class="nav" aria-label="Primary">
           <a href="/" aria-current={isActive('/') ? 'page' : undefined}>projects</a>
