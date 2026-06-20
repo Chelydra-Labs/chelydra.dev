@@ -157,7 +157,7 @@ pre code {
 /* ---------- header ---------- */
 .site-header {
   border-bottom: 1px solid var(--border);
-  background: rgba(10, 31, 29, 0.92);
+  background: rgba(20, 21, 26, 0.92);
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
@@ -167,20 +167,27 @@ pre code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 88px;
+  height: 64px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text);
 }
 .brand:hover {
   color: var(--text);
 }
-.brand__logo {
-  width: 72px;
-  height: 72px;
-  display: block;
+.brand__mark {
+  color: var(--text);
+}
+.brand__mark--accent {
+  color: var(--accent);
+  margin-left: 0.4em;
 }
 .nav {
   display: flex;
